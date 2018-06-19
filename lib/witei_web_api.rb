@@ -13,4 +13,8 @@ module WiteiWebApi
   require 'witei_web_api/house'
   require 'witei_web_api/contact'
   require 'witei_web_api/office_user'
+
+  class << self
+    attr_accessor :login, :password
+  end
 end

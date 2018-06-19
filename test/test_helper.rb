@@ -17,7 +17,7 @@ VCR.configure do |c|
   c.hook_into :webmock
 end
 
-if ENV["HELL_ENABLED"]
+if ENV["COV_ENABLED"]
   require "minitest/hell"
   
   class Minitest::Test
@@ -27,6 +27,9 @@ if ENV["HELL_ENABLED"]
 else
   require "minitest/pride"
 end
+
+WiteiWebApi.login = ENV['login']
+WiteiWebApi.password = ENV['password']
 
 if defined? WebMock 
   allow = ['codeclimate.com:443']
