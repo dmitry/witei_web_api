@@ -2,20 +2,24 @@ module WiteiWebApi
   class Base
     include ActiveModel::AttributeAssignment
 
-    @@logged = false
+    class << self
+      attr_accessor :login, :password
+    end
 
+    @@login = ENV['login']
+    @@password = ENV['password']
 
     private
 
     def self.agent
       @agent ||= begin
         agent = WiteiWebApi::Agent.new
-        login!(agent)
+        do_login!(agent)
         agent
       end
     end
 
-    def self.login(agent, login, password)
+    def self.do_login(agent, login, password)
       page = agent.get 'https://witei.com/pro/accounts/login/?next=/pro/agencies/dashboard/'
 
       form = page.form_with class: 'form-horizontal'
@@ -25,8 +29,8 @@ module WiteiWebApi
       x.uri.path == '/pro/agencies/dashboard/'
     end
 
-    def self.login!(agent)
-      unless login(agent, ENV['login'], ENV['password'])
+    def self.do_login!(agent)
+      unless do_login(agent, @@login, @@password)
         raise(LoginFailedException.new)
       end
     end

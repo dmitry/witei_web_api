@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = %q{Witei Web API}
   spec.description = %q{Witei Web API}
   spec.homepage = 'https://github.com/dmitry/witei_web_api'
-  spec.license = 'CC0 1.0'
+  spec.license = 'CC0-1.0'
 
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test)/}) }
   spec.require_paths = ['lib']
