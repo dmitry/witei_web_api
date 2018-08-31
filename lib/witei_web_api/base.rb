@@ -5,7 +5,7 @@ module WiteiWebApi
     private
 
     def self.agent
-      @agent ||= begin
+      Thread.current[:witei_web_api_agent] ||= begin
         agent = WiteiWebApi::Agent.new
         login!(agent)
         agent
