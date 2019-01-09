@@ -28,8 +28,8 @@ else
   require "minitest/pride"
 end
 
-WiteiWebApi.login = ENV['login']
-WiteiWebApi.password = ENV['password']
+WiteiWebApi.login = ENV['LOGIN']
+WiteiWebApi.password = ENV['PASSWORD']
 
 if defined? WebMock 
   allow = ['codeclimate.com:443']
@@ -40,3 +40,4 @@ class WiteiWebApi::Test < MiniTest::Test
   VCR_RECORD_MODE = (ENV['VCR_RECORD_MODE'] || 'once').to_sym
   # VCR_RECORD_MODE = :new_episodes
 end
+

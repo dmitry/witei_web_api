@@ -4,7 +4,7 @@ class WiteiWebApi::Contact < WiteiWebApi::Base
   has_one(:commercial) { WiteiWebApi::OfficeUser }
 
   def self.find(id)
-    page = agent.get "https://witei.com/pro/agencies/contact/#{id}/update/"
+    page = get("/pro/agencies/contact/#{id}/update/")
     form = page.forms_with(css: '.form-horizontal').first
 
     contact = new

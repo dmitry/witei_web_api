@@ -8,10 +8,8 @@ class WiteiWebApi::House < WiteiWebApi::Base
   has_one(:creator) { WiteiWebApi::OfficeUser }
 
   def self.find(identifier)
-    page = agent.get "https://witei.com/pro/agencies/houses/list/?_hidden__action_identifier_bcd32c=unacc_eq&_hidden_identifier_bcd32c=#{identifier}&listView=block"
-    id = page.css('#id_houses_0').first['value']
-
-    page = agent.get "https://witei.com/pro/house/update/#{id}/"
+    id = id_by_identifier(identifier)
+    page = get("/pro/house/update/#{id}/")
 
     form = page.forms_with(css: '.form-horizontal').first
 
@@ -24,5 +22,10 @@ class WiteiWebApi::House < WiteiWebApi::Base
       creator_id: form['creator']
     )
     house
+  end
+
+  def self.id_by_identifier(identifier)
+    page = get("/pro/agencies/houses/list/?_hidden__action_identifier_bcd32c=unacc_eq&_hidden_identifier_bcd32c=#{identifier}&listView=block")
+    page.css('#id_houses_0').first['value']
   end
 end
