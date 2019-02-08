@@ -1,5 +1,5 @@
 class WiteiWebApi::House < WiteiWebApi::Base
-  attr_accessor :owner_id, :partner_id, :recruiter_id, :commercial_id, :creator_id
+  attr_accessor :owner_id, :partner_id, :recruiter_id, :commercial_id, :creator_id, :notes
 
   has_one(:owner) { WiteiWebApi::Contact }
   has_one(:partner) { WiteiWebApi::Contact }
@@ -19,7 +19,8 @@ class WiteiWebApi::House < WiteiWebApi::Base
       partner_id: form['partner'],
       recruiter_id: form['recruiter'],
       commercial_id: form['commercial'],
-      creator_id: form['creator']
+      creator_id: form['creator'],
+      notes: form['notes']
     )
     house
   end
