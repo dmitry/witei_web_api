@@ -1,5 +1,19 @@
 class WiteiWebApi::House < WiteiWebApi::Base
-  attr_accessor :owner_id, :partner_id, :recruiter_id, :commercial_id, :creator_id, :notes
+  attr_accessor :owner_id,
+                :partner_id,
+                :recruiter_id,
+                :commercial_id,
+                :creator_id,
+                :keys,
+                :sign_displayed,
+                :notes,
+                :ref_number,
+                :agreement_type,
+                :agreement_valid_from,
+                :agreement_valid_until,
+                :commission_amount,
+                :commission_shared_percent,
+                :commission_percent
 
   has_one(:owner) { WiteiWebApi::Contact }
   has_one(:partner) { WiteiWebApi::Contact }
@@ -20,7 +34,16 @@ class WiteiWebApi::House < WiteiWebApi::Base
       recruiter_id: form['recruiter'],
       commercial_id: form['commercial'],
       creator_id: form['creator'],
-      notes: form['notes']
+      keys: form['keys'],
+      sign_displayed: form['sign_displayed'],
+      notes: form['notes'],
+      ref_number: form['ref_number'],
+      agreement_type: form['agreement_type'],
+      agreement_valid_from: form['agreement_valid_from'],
+      agreement_valid_until: form['agreement_valid_until'],
+      commission_amount: form['commission_amount'],
+      commission_shared_percent: form['commission_shared_percent'],
+      commission_percent: form['commission_percent']
     )
     house
   end
