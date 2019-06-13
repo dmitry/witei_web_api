@@ -13,7 +13,19 @@ class WiteiWebApi::House < WiteiWebApi::Base
                 :agreement_valid_until,
                 :commission_amount,
                 :commission_shared_percent,
-                :commission_percent
+                :commission_percent,
+                :street,
+                :street_number,
+                :province,
+                :town,
+                :zip_code,
+                :district,
+                :zone,
+                :urbanization,
+                :block,
+                :doorway,
+                :door,
+                :floor
 
   has_one(:owner) { WiteiWebApi::Contact }
   has_one(:partner) { WiteiWebApi::Contact }
@@ -43,7 +55,19 @@ class WiteiWebApi::House < WiteiWebApi::Base
       agreement_valid_until: form['agreement_valid_until'],
       commission_amount: form['commission_amount'],
       commission_shared_percent: form['commission_shared_percent'],
-      commission_percent: form['commission_percent']
+      commission_percent: form['commission_percent'],
+      street: form['street'],
+      street_number: form['street_number'],
+      province: form['province'],
+      town: form['town'],
+      zip_code: form['zip_code'],
+      district: form['district'],
+      zone: form['zone'],
+      urbanization: form['urbanization'],
+      block: form['block'],
+      doorway: form['doorway'],
+      door: form['door'],
+      floor: form['floor']
     )
     house
   end
