@@ -7,15 +7,15 @@ class WiteiWebApi::HouseTest < WiteiWebApi::Test
 
   def test_find
     VCR.use_cassette('house/find', record: VCR_RECORD_MODE) do
-      house = WiteiWebApi::House.find('2P105')
-      assert_equal '2420777', house.owner_id
-      assert_equal '', house.commercial_id
-      assert_equal '11013', house.creator_id
+      house = WiteiWebApi::House.find('00913')
+      assert_equal '2136240', house.owner_id
+      assert_equal '10992', house.commercial_id
+      assert_equal '10992', house.creator_id
       assert_nil house.recruiter_id
       assert_equal '', house.partner_id
       assert house.owner.is_a?(WiteiWebApi::Contact)
       assert_nil house.partner
-      assert_nil house.commercial
+      assert house.commercial.is_a?(WiteiWebApi::OfficeUser)
       assert_nil house.recruiter
       assert house.creator.is_a?(WiteiWebApi::OfficeUser)
     end

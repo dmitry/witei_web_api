@@ -5,7 +5,7 @@ class WiteiWebApi::Contact < WiteiWebApi::Base
 
   def self.find(id)
     page = get("/pro/agencies/contact/#{id}/update/")
-    form = page.forms_with(css: '.form-horizontal').first
+    form = page.forms_with(css: '.form').first
 
     contact = new
     contact.assign_attributes(
