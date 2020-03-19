@@ -25,7 +25,8 @@ class WiteiWebApi::House < WiteiWebApi::Base
                 :block,
                 :doorway,
                 :door,
-                :floor
+                :floor,
+                :building_floors
 
   has_one(:owner) { WiteiWebApi::Contact }
   has_one(:partner) { WiteiWebApi::Contact }
@@ -67,7 +68,8 @@ class WiteiWebApi::House < WiteiWebApi::Base
       block: form['block'],
       doorway: form['doorway'],
       door: form['door'],
-      floor: form['floor']
+      floor: form['floor'],
+      building_floors: form['building_floors']
     )
     house
   end
