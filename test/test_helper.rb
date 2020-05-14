@@ -38,6 +38,5 @@ end
 
 class WiteiWebApi::Test < MiniTest::Test
   VCR_RECORD_MODE = (ENV['VCR_RECORD_MODE'] || 'once').to_sym
-  # VCR_RECORD_MODE = :new_episodes
 end
 

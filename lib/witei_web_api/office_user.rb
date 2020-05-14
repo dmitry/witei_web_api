@@ -4,7 +4,7 @@ class WiteiWebApi::OfficeUser < WiteiWebApi::Base
   def self.find(id)
     page = get("/pro/agencies/account_management/agency/user_update/#{id}/")
 
-    form = page.forms_with(css: '.form-horizontal').first
+    form = page.forms_with(css: '#user_form').first
 
     office_user = new
     office_user.assign_attributes(
