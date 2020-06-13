@@ -403,7 +403,7 @@ http_interactions:
   recorded_at: Thu, 14 May 2020 18:20:40 GMT
 - request:
     method: get
-    uri: https://witei.com/pro/agencies/account_management/agency/user_update/10992/
+    uri: https://witei.com/pro/accounts/user/10992/manage/
     body:
       encoding: US-ASCII
       string: ''
@@ -469,7 +469,7 @@ http_interactions:
   recorded_at: Thu, 14 May 2020 18:20:41 GMT
 - request:
     method: get
-    uri: https://witei.com/pro/agencies/account_management/agency/user_update/10992/
+    uri: https://witei.com/pro/accounts/user/10992/manage/
     body:
       encoding: US-ASCII
       string: ''
